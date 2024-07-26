@@ -25,6 +25,8 @@ export default function App() {
   const [background, setBackground] = useState(null);
   const [inputValue, setInputValue] = useState("");
 
+  icon.style.display = "none";
+
   useEffect(() => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
@@ -59,6 +61,8 @@ export default function App() {
           moonSet.innerText = weather.forecast.forecastday[0].astro.moonset;
           rainChance.innerText = `${weather.forecast.forecastday[0].day.daily_chance_of_rain}%`;
           snowChance.innerText = `${weather.forecast.forecastday[0].day.daily_chance_of_snow}%`;
+
+          icon.style.display = "inline-block";
 
           const conditionText = weather.current.condition.text.toLowerCase();
           const isDay = weather.current.is_day === 1;
@@ -104,6 +108,8 @@ export default function App() {
         moonSet.innerText = weather.forecast.forecastday[0].astro.moonset;
         rainChance.innerText = `${weather.forecast.forecastday[0].day.daily_chance_of_rain}%`;
         snowChance.innerText = `${weather.forecast.forecastday[0].day.daily_chance_of_snow}%`;
+        
+        icon.style.display = "inline-block";
 
         const conditionText = weather.current.condition.text.toLowerCase();
         const isDay = weather.current.is_day === 1;
@@ -153,7 +159,7 @@ export default function App() {
           <div className="flex flex-col md:flex-row items-center gap-20">
             <div>
               <h1 id="temp" className="text-white font-bold text-8xl">
-                00°C
+
               </h1>
             </div>
 
@@ -168,10 +174,10 @@ export default function App() {
 
               <div className="flex items-center justify-between gap-10">
                 <p id="time" className="text-white font-bold">
-                  00:00 - Day dd/mm/yy
+                  
                 </p>
                 <p id="condition" className="text-white font-bold">
-                  Sunny
+                  
                 </p>
               </div>
             </div>
@@ -257,7 +263,7 @@ export default function App() {
 
       <footer className="w-full h-fit bg-footer lg:py-1 py-2 flex flex-col gap-2 items-start md:items-center md:gap-0 md:flex-row justify-between px-4">
         <p className="text-dim text-sm">
-          &#169; 2024 Weather App ver. 1.1.3. All rights reserved.
+          &#169; 2024 Weather App ver. 1.1.4. All rights reserved.
         </p>
         <p className="text-dim text-sm">
           Made by{" "}
