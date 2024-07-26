@@ -1,5 +1,5 @@
-import search_icon from "./search-icon.svg";
+import { searchIcon } from "./icons";
 import day from "./images/day";
 import night from "./images/night";
 
-export { search_icon, day, night };
+export { searchIcon, day, night };

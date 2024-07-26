@@ -1,6 +1,6 @@
-import { day, night, search_icon } from "./assets";
+import { day, night, searchIcon } from "./assets";
 import { apiKey } from "./constants";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 
 export default function App() {
   const place = document.getElementById("place");
@@ -195,7 +195,7 @@ export default function App() {
               }
               className="w-12 bg-white bg-opacity-50 hover:bg-opacity-90 transition-all ease-in-out h-12 flex items-center justify-center"
             >
-              <img src={search_icon} width={40} height={40} alt="" />
+              <img src={searchIcon} width={40} height={40} alt="" />
             </button>
           </div>
 
