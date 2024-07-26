@@ -123,7 +123,10 @@ export default function App() {
 
         setBackground(image);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        alert(`Cannot find ${inputValue}. Please try again.`);
+        return;
+      });
   };
 
   const handleKeyDown = (event) => {
@@ -253,7 +256,7 @@ export default function App() {
 
       <footer className="w-full h-fit bg-footer flex flex-col gap-2 items-start md:items-center md:gap-0 md:flex-row justify-between px-4">
         <p className="text-dim text-sm">
-          &#169; 2024 Weather App ver. 1.0.4. All rights reserved.
+          &#169; 2024 Weather App ver. 1.1.0. All rights reserved.
         </p>
         <p className="text-dim text-sm">
           Made by{" "}
