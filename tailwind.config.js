@@ -6,6 +6,7 @@ export default {
       colors: {
         secondary: "#a4a7b7",
         dim: "#cdd1d2",
+        footer: "#1a1a1a",
       },
       backdropFilter: {
         none: "none",
