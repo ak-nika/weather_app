@@ -142,6 +142,7 @@ export default function App() {
           backgroundImage: `url(${background})`,
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
+          backgroundPosition: "center",
         }}
       >
         <div className="flex flex-col lg:pl-6 lg:pb-12 py-12 justify-between lg:h-[95.6vh] lg:w-[50%] ">
@@ -256,7 +257,7 @@ export default function App() {
 
       <footer className="w-full h-fit bg-footer lg:py-1 py-2 flex flex-col gap-2 items-start md:items-center md:gap-0 md:flex-row justify-between px-4">
         <p className="text-dim text-sm">
-          &#169; 2024 Weather App ver. 1.1.2. All rights reserved.
+          &#169; 2024 Weather App ver. 1.1.3. All rights reserved.
         </p>
         <p className="text-dim text-sm">
           Made by{" "}
