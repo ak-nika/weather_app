@@ -132,8 +132,8 @@ export default function App() {
     }
   };
   return (
-    <>
-      <section
+    <section className="bg-footer lg:h-[100vh]">
+      <main
         className="bg-black w-full lg:h-[96.8vh] flex lg:flex-row flex-col items-center justify-between"
         style={{
           backgroundImage: `url(${background})`,
@@ -249,11 +249,11 @@ export default function App() {
             </div>
           </div>
         </div>
-      </section>
+      </main>
 
       <footer className="w-full h-fit bg-footer flex flex-col gap-2 items-start md:items-center md:gap-0 md:flex-row justify-between px-4">
         <p className="text-dim text-sm">
-          &#169; 2024 Weather App ver. 1.0.2. All rights reserved.
+          &#169; 2024 Weather App ver. 1.0.4. All rights reserved.
         </p>
         <p className="text-dim text-sm">
           Made by{" "}
@@ -266,6 +266,6 @@ export default function App() {
         </p>
         <p className="text-dim text-sm">Powered by OpenWeather</p>
       </footer>
-    </>
+    </section>
   );
 }
