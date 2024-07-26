@@ -39,7 +39,7 @@ export default function App() {
   useEffect(() => {
     if (location.latitude && location.longitude) {
       fetch(
-        `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${location.latitude},${location.longitude}`
+        `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${location.latitude},${location.longitude}`
       )
         .then((response) => response.json())
         .then((weather) => {
@@ -84,7 +84,7 @@ export default function App() {
 
   const handleWeather = (inputValue) => {
     fetch(
-      `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${inputValue}`
+      `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${inputValue}`
     )
       .then((response) => response.json())
       .then((weather) => {
