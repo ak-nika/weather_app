@@ -25,7 +25,7 @@ export default function App() {
   const [background, setBackground] = useState(null);
   const [inputValue, setInputValue] = useState("");
 
-  icon.style.display = "none";
+  icon.classList.add("hidden");
 
   useEffect(() => {
     if (navigator.geolocation) {
@@ -62,7 +62,7 @@ export default function App() {
           rainChance.innerText = `${weather.forecast.forecastday[0].day.daily_chance_of_rain}%`;
           snowChance.innerText = `${weather.forecast.forecastday[0].day.daily_chance_of_snow}%`;
 
-          icon.style.display = "inline-block";
+          icon.classList.remove("hidden");
 
           const conditionText = weather.current.condition.text.toLowerCase();
           const isDay = weather.current.is_day === 1;
@@ -109,7 +109,7 @@ export default function App() {
         rainChance.innerText = `${weather.forecast.forecastday[0].day.daily_chance_of_rain}%`;
         snowChance.innerText = `${weather.forecast.forecastday[0].day.daily_chance_of_snow}%`;
         
-        icon.style.display = "inline-block";
+        icon.classList.remove("hidden");
 
         const conditionText = weather.current.condition.text.toLowerCase();
         const isDay = weather.current.is_day === 1;
