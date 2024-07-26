@@ -25,8 +25,6 @@ export default function App() {
   const [background, setBackground] = useState(null);
   const [inputValue, setInputValue] = useState("");
 
-  icon.classList.add("hidden");
-
   useEffect(() => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
@@ -61,8 +59,6 @@ export default function App() {
           moonSet.innerText = weather.forecast.forecastday[0].astro.moonset;
           rainChance.innerText = `${weather.forecast.forecastday[0].day.daily_chance_of_rain}%`;
           snowChance.innerText = `${weather.forecast.forecastday[0].day.daily_chance_of_snow}%`;
-
-          icon.classList.remove("hidden");
 
           const conditionText = weather.current.condition.text.toLowerCase();
           const isDay = weather.current.is_day === 1;
@@ -108,8 +104,6 @@ export default function App() {
         moonSet.innerText = weather.forecast.forecastday[0].astro.moonset;
         rainChance.innerText = `${weather.forecast.forecastday[0].day.daily_chance_of_rain}%`;
         snowChance.innerText = `${weather.forecast.forecastday[0].day.daily_chance_of_snow}%`;
-        
-        icon.classList.remove("hidden");
 
         const conditionText = weather.current.condition.text.toLowerCase();
         const isDay = weather.current.is_day === 1;
