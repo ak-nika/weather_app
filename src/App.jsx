@@ -135,16 +135,16 @@ export default function App() {
     }
   };
   return (
-    <section className="bg-footer lg:h-[100vh]">
-      <main
-        className="bg-black w-full lg:h-[96.8vh] flex lg:flex-row flex-col items-center justify-between"
+    <>
+      <section
+        className="bg-black w-full lg:h-[95.6vh] flex lg:flex-row flex-col items-center justify-between"
         style={{
           backgroundImage: `url(${background})`,
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
         }}
       >
-        <div className="flex flex-col lg:pl-6 lg:pb-12 py-12 justify-between lg:h-[96.8vh] lg:w-[50%] ">
+        <div className="flex flex-col lg:pl-6 lg:pb-12 py-12 justify-between lg:h-[95.6vh] lg:w-[50%] ">
           <div>
             <h3 className="font-semibold text-xl text-white">Weather App</h3>
           </div>
@@ -177,7 +177,7 @@ export default function App() {
           </div>
         </div>
 
-        <div id="bg" className="glass-background lg:w-[40%] w-full h-[96.8vh]">
+        <div id="bg" className="glass-background lg:w-[40%] w-full lg:h-[95.6vh] lg:pb-0 pb-3">
           <div className="w-full flex items-center justify-between">
             <div className="w-full flex items-center justify-center">
               <input
@@ -252,11 +252,11 @@ export default function App() {
             </div>
           </div>
         </div>
-      </main>
+      </section>
 
-      <footer className="w-full h-fit bg-footer flex flex-col gap-2 items-start md:items-center md:gap-0 md:flex-row justify-between px-4">
+      <footer className="w-full h-fit bg-footer lg:py-1 py-2 flex flex-col gap-2 items-start md:items-center md:gap-0 md:flex-row justify-between px-4">
         <p className="text-dim text-sm">
-          &#169; 2024 Weather App ver. 1.1.0. All rights reserved.
+          &#169; 2024 Weather App ver. 1.1.2. All rights reserved.
         </p>
         <p className="text-dim text-sm">
           Made by{" "}
@@ -269,6 +269,6 @@ export default function App() {
         </p>
         <p className="text-dim text-sm">Powered by OpenWeather</p>
       </footer>
-    </section>
+      </>
   );
 }
