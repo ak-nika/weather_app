@@ -49,7 +49,7 @@ export default function App() {
           time.innerText = weather.location.localtime;
           icon.src = weather.current.condition.icon;
           country.innerText = weather.location.country;
-          feelsLike.innerText = `${weather.current.feelslike_c}°C`;
+          feelsLike.innerText = `${weather.current.feelslike_c} °C`;
           uv.innerText = weather.current.uv;
           humidity.innerText = `${weather.current.humidity}%`;
           windSpeed.innerText = `${weather.current.wind_kph} KPH`;
@@ -59,6 +59,8 @@ export default function App() {
           moonSet.innerText = weather.forecast.forecastday[0].astro.moonset;
           rainChance.innerText = `${weather.forecast.forecastday[0].day.daily_chance_of_rain}%`;
           snowChance.innerText = `${weather.forecast.forecastday[0].day.daily_chance_of_snow}%`;
+
+          icon.classList.remove("hidden");
 
           const conditionText = weather.current.condition.text.toLowerCase();
           const isDay = weather.current.is_day === 1;
@@ -83,6 +85,11 @@ export default function App() {
   }, [location, apiKey, day, night]);
 
   const handleWeather = (inputValue) => {
+    if (inputValue === "") {
+      alert("Please enter a location");
+      return;
+    }
+
     fetch(
       `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${inputValue}`
     )
@@ -94,16 +101,18 @@ export default function App() {
         time.innerText = weather.location.localtime;
         icon.src = weather.current.condition.icon;
         country.innerText = weather.location.country;
-        feelsLike.innerText = `${weather.current.feelslike_c}°C`;
+        feelsLike.innerText = `${weather.current.feelslike_c} °C`;
         uv.innerText = weather.current.uv;
         humidity.innerText = `${weather.current.humidity}%`;
-        windSpeed.innerText = `${weather.current.wind_kph} kPH`;
+        windSpeed.innerText = `${weather.current.wind_kph} KPH`;
         sunRise.innerText = weather.forecast.forecastday[0].astro.sunrise;
         sunSet.innerText = weather.forecast.forecastday[0].astro.sunset;
         moonRise.innerText = weather.forecast.forecastday[0].astro.moonrise;
         moonSet.innerText = weather.forecast.forecastday[0].astro.moonset;
         rainChance.innerText = `${weather.forecast.forecastday[0].day.daily_chance_of_rain}%`;
         snowChance.innerText = `${weather.forecast.forecastday[0].day.daily_chance_of_snow}%`;
+
+        icon.classList.remove("hidden");
 
         const conditionText = weather.current.condition.text.toLowerCase();
         const isDay = weather.current.is_day === 1;
@@ -145,40 +154,39 @@ export default function App() {
           backgroundPosition: "center",
         }}
       >
-        <div className="flex flex-col lg:pl-6 lg:pb-12 py-12 justify-between lg:h-[95.6vh] lg:w-[50%] ">
-          <div>
-            <h3 className="font-semibold text-xl text-white">Weather App</h3>
-          </div>
+        <div className="flex flex-col lg:pl-6 lg:pb-12 lg:py-12 py-4 justify-between lg:h-[95.6vh] lg:w-[50%] ">
+          <h3 className="font-semibold text-xl text-white">Weather App</h3>
 
-          <div className="flex flex-col md:flex-row items-center gap-20">
-            <div>
-              <h1 id="temp" className="text-white font-bold text-8xl">
+          <div className="flex flex-col md:flex-row items-center justify-between">
+            <h1 id="temp" className="text-white font-bold text-8xl"></h1>
 
-              </h1>
-            </div>
-
-            <div className="flex flex-col gap-4">
-              <div className="flex items-center justify-between">
+            <div className="flex gap-4">
+              <div className="flex flex-col items-center justify-between gap-4">
                 <h1
                   id="place"
                   className="text-white font-semibold text-5xl"
                 ></h1>
-                <img id="icon" alt="weather" width={64} height={64} />
+                <p id="time" className="text-white font-bold"></p>
               </div>
 
-              <div className="flex items-center justify-between gap-10">
-                <p id="time" className="text-white font-bold">
-                  
-                </p>
-                <p id="condition" className="text-white font-bold">
-                  
-                </p>
+              <div className="flex flex-col items-center justify-center">
+                <img
+                  id="icon"
+                  alt="weather"
+                  className="hidden"
+                  width={64}
+                  height={64}
+                />
+                <p id="condition" className="text-white font-bold"></p>
               </div>
             </div>
           </div>
         </div>
 
-        <div id="bg" className="glass-background lg:w-[40%] w-full lg:h-[95.6vh] lg:pb-0 pb-3">
+        <div
+          id="bg"
+          className="glass-background lg:w-[40%] w-full lg:h-[95.6vh] lg:pb-0 pb-3"
+        >
           <div className="w-full flex items-center justify-between">
             <div className="w-full flex items-center justify-center">
               <input
@@ -257,19 +265,19 @@ export default function App() {
 
       <footer className="w-full h-fit bg-footer lg:py-1 py-2 flex flex-col gap-2 items-start md:items-center md:gap-0 md:flex-row justify-between px-4">
         <p className="text-dim text-sm">
-          &#169; 2024 Weather App ver. 1.1.4.1. All rights reserved.
+          &#169; 2024 Weather App ver. 1.1.5. All rights reserved.
         </p>
         <p className="text-dim text-sm">
           Made by{" "}
           <a
             href="https://github.com/ak-nika/"
-            className="text-white font-bold"
+            className="text-white font-bold underline hover:no-underline"
           >
             ak-nika
           </a>
         </p>
         <p className="text-dim text-sm">Powered by OpenWeather</p>
       </footer>
-      </>
+    </>
   );
 }
