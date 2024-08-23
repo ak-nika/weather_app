@@ -1,4 +1,4 @@
-import { day, night, searchIcon } from "./assets";
+import { day, night, } from "./assets";
 import { useEffect, useState } from "react";
 import { weatherDetails } from "./constants";
 import DetailsCard from "./components/DetailsCard";
