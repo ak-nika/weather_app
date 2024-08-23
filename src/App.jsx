@@ -1,8 +1,11 @@
 import { day, night, searchIcon } from "./assets";
-import { apiKey } from "./constants";
 import { useEffect, useState } from "react";
+import { weatherDetails } from "./constants";
+import DetailsCard from "./components/DetailsCard";
 
 export default function App() {
+  const apiKey = import.meta.env.VITE_API_KEY;
+  
   const place = document.getElementById("place");
   const temp = document.getElementById("temp");
   const condition = document.getElementById("condition");
@@ -198,14 +201,6 @@ export default function App() {
                 className="w-[80%] h-12 mx-auto pl-4 border-b-[1px] border-secondary bg-transparent text-white outline-none"
               />
             </div>
-            <button
-              onClick={() =>
-                handleWeather(document.getElementById("input").value)
-              }
-              className="w-12 bg-white bg-opacity-50 hover:bg-opacity-90 transition-all ease-in-out h-12 flex items-center justify-center"
-            >
-              <img src={searchIcon} width={40} height={40} alt="" />
-            </button>
           </div>
 
           <div className="px-[10%] mt-6">
@@ -214,50 +209,9 @@ export default function App() {
             </h3>
 
             <div className="mt-5 flex flex-col w-full gap-4">
-              <div className="flex items-center justify-between w-full">
-                <p className="text-dim text-lg">Country</p>
-                <p className="text-white text-lg" id="country"></p>
-              </div>
-              <div className="flex items-center justify-between w-full">
-                <p className="text-dim text-lg">Feels Like</p>
-                <p className="text-white text-lg" id="feelsLike"></p>
-              </div>
-              <div className="flex items-center justify-between w-full">
-                <p className="text-dim text-lg">UV Index</p>
-                <p className="text-white text-lg" id="uv"></p>
-              </div>
-              <div className="flex items-center justify-between w-full">
-                <p className="text-dim text-lg">Humidity</p>
-                <p className="text-white text-lg" id="humidity"></p>
-              </div>
-              <div className="flex items-center justify-between w-full">
-                <p className="text-dim text-lg">Wind Speed</p>
-                <p className="text-white text-lg" id="wind"></p>
-              </div>
-              <div className="flex items-center justify-between w-full">
-                <p className="text-dim text-lg">Sun Rise</p>
-                <p className="text-white text-lg" id="sunRise"></p>
-              </div>
-              <div className="flex items-center justify-between w-full">
-                <p className="text-dim text-lg">Sun Set</p>
-                <p className="text-white text-lg" id="sunSet"></p>
-              </div>
-              <div className="flex items-center justify-between w-full">
-                <p className="text-dim text-lg">Moon Rise</p>
-                <p className="text-white text-lg" id="moonRise"></p>
-              </div>
-              <div className="flex items-center justify-between w-full">
-                <p className="text-dim text-lg">Moon Set</p>
-                <p className="text-white text-lg" id="moonSet"></p>
-              </div>
-              <div className="flex items-center justify-between w-full">
-                <p className="text-dim text-lg">Chance of Rain</p>
-                <p className="text-white text-lg" id="rainChance"></p>
-              </div>
-              <div className="flex items-center justify-between w-full">
-                <p className="text-dim text-lg">Chance of Snow</p>
-                <p className="text-white text-lg" id="snowChance"></p>
-              </div>
+              {weatherDetails.map((detail) => (
+                <DetailsCard id={detail.idName} name={detail.name} key={detail.id} />
+              ))}
             </div>
           </div>
         </div>
@@ -265,7 +219,7 @@ export default function App() {
 
       <footer className="w-full h-fit bg-footer lg:py-1 py-2 flex flex-col gap-2 items-start md:items-center md:gap-0 md:flex-row justify-between px-4">
         <p className="text-dim text-sm">
-          &#169; 2024 Weather App ver. 1.1.5. All rights reserved.
+          &#169; 2024 Weather App ver. 1.2.0. All rights reserved.
         </p>
         <p className="text-dim text-sm">
           Made by{" "}
