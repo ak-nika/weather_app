@@ -1,11 +1,11 @@
-import { day, night, } from "./assets";
+import { day, night } from "./assets";
 import { useEffect, useState } from "react";
 import { weatherDetails } from "./constants";
 import DetailsCard from "./components/DetailsCard";
 
 export default function App() {
   const apiKey = import.meta.env.VITE_API_KEY;
-  
+
   const place = document.getElementById("place");
   const temp = document.getElementById("temp");
   const condition = document.getElementById("condition");
@@ -210,7 +210,11 @@ export default function App() {
 
             <div className="mt-5 flex flex-col w-full gap-4">
               {weatherDetails.map((detail) => (
-                <DetailsCard id={detail.idName} name={detail.name} key={detail.id} />
+                <DetailsCard
+                  id={detail.idName}
+                  name={detail.name}
+                  key={detail.id}
+                />
               ))}
             </div>
           </div>
@@ -219,7 +223,7 @@ export default function App() {
 
       <footer className="w-full h-fit bg-footer lg:py-1 py-2 flex flex-col gap-2 items-start md:items-center md:gap-0 md:flex-row justify-between px-4">
         <p className="text-dim text-sm">
-          &#169; 2024 Weather App ver. 1.2.0. All rights reserved.
+          &#169; 2024 Weather App ver. 1.2.1. All rights reserved.
         </p>
         <p className="text-dim text-sm">
           Made by{" "}
