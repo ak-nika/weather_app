@@ -221,7 +221,7 @@ export default function App() {
         </div>
       </section>
 
-      <footer className="w-full h-fit bg-footer lg:py-1 py-2 flex flex-col gap-2 items-start md:items-center md:gap-0 md:flex-row justify-between px-4">
+      <footer className="w-full h-fit lg:py-1 py-2 flex flex-col gap-2 items-start md:items-center md:gap-0 md:flex-row justify-between px-4">
         <p className="text-dim text-sm">
           &#169; 2024 Weather App ver. 1.2.1. All rights reserved.
         </p>
