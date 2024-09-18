@@ -2,6 +2,7 @@ import { day, night } from "./assets";
 import { useEffect, useState } from "react";
 import { weatherDetails } from "./constants";
 import DetailsCard from "./components/DetailsCard";
+import Footer from "./components/Footer";
 
 export default function App() {
   const apiKey = import.meta.env.VITE_API_KEY;
@@ -149,7 +150,7 @@ export default function App() {
   return (
     <>
       <section
-        className="bg-black w-full lg:h-[95.6vh] flex lg:flex-row flex-col items-center justify-between"
+        className="bg-black w-full md:h-[95.6vh] flex lg:flex-row flex-col items-center justify-between"
         style={{
           backgroundImage: `url(${background})`,
           backgroundRepeat: "no-repeat",
@@ -157,10 +158,10 @@ export default function App() {
           backgroundPosition: "center",
         }}
       >
-        <div className="flex flex-col lg:pl-6 lg:pb-12 lg:py-12 py-4 justify-between lg:h-[95.6vh] lg:w-[50%] ">
+        <div className="flex flex-col lg:pl-6 lg:pb-12 lg:py-12 py-4 justify-between md:h-[95.6vh] lg:w-[50%] ">
           <h3 className="font-semibold text-xl text-white">Weather App</h3>
 
-          <div className="flex flex-col md:flex-row items-center justify-between">
+          <div className="flex flex-col lg:flex-row items-center justify-between">
             <h1 id="temp" className="text-white font-bold text-8xl"></h1>
 
             <div className="flex gap-4">
@@ -188,7 +189,7 @@ export default function App() {
 
         <div
           id="bg"
-          className="glass-background lg:w-[40%] w-full lg:h-[95.6vh] lg:pb-0 pb-3"
+          className="glass-background lg:w-[40%] w-full md:h-[95.6vh] lg:pb-0 pb-3"
         >
           <div className="w-full flex items-center justify-between">
             <div className="w-full flex items-center justify-center">
@@ -221,21 +222,7 @@ export default function App() {
         </div>
       </section>
 
-      <footer className="w-full h-fit lg:py-1 py-2 flex flex-col gap-2 items-start md:items-center md:gap-0 md:flex-row justify-between px-4">
-        <p className="text-dim text-sm">
-          &#169; 2024 Weather App ver. 1.2.2. All rights reserved.
-        </p>
-        <p className="text-dim text-sm">
-          Made by{" "}
-          <a
-            href="https://github.com/ak-nika/"
-            className="text-white font-bold underline hover:no-underline"
-          >
-            ak-nika
-          </a>
-        </p>
-        <p className="text-dim text-sm">Powered by OpenWeather</p>
-      </footer>
+      <Footer />
     </>
   );
 }
