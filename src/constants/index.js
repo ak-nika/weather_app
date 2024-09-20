@@ -1,57 +1,62 @@
 export const weatherDetails = [
   {
     id: 1,
-    idName: "country",
+    value: weather.location.country,
     name: "Country",
   },
   {
     id: 2,
-    idName: "feelsLike",
+    value: weather.current.feelslike_c,
     name: "Feels Like",
+    unit: "°C",
   },
   {
     id: 3,
-    idName: "uv",
+    value: weather.current.uv,
     name: "UV Index",
   },
   {
     id: 4,
-    idName: "humidity",
+    value: weather.current.humidity,
     name: "Humidity",
+    unit: "%",
   },
   {
     id: 5,
-    idName: "wind",
+    value: weather.current.wind_kph,
     name: "Wind Speed",
+    unit: "KPH",
   },
   {
     id: 6,
-    idName: "sunRise",
+    value: weather.forecast.forecastday[0].astro.sunrise,
     name: "Sun Rise",
   },
   {
     id: 7,
-    idName: "sunSet",
+    value: weather.forecast.forecastday[0].astro.sunset,
     name: "Sun Set",
   },
   {
     id: 8,
-    idName: "moonRise",
+    value: weather.forecast.forecastday[0].astro.moonrise,
     name: "Moon Rise",
   },
   {
     id: 9,
-    idName: "moonSet",
+    value: weather.forecast.forecastday[0].astro.moonset,
     name: "Moon Set",
   },
   {
     id: 10,
-    idName: "rainChance",
+    value: weather.forecast.forecastday[0].day.daily_chance_of_rain,
     name: "Chance of Rain",
+    unit: "%",
   },
   {
     id: 11,
-    idName: "snowChance",
+    value: weather.forecast.forecastday[0].day.daily_chance_of_snow,
     name: "Chance of Snow",
+    unit: "%",
   },
 ];
