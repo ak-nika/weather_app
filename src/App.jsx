@@ -5,8 +5,9 @@ import DetailsCard from "./components/DetailsCard";
 import Footer from "./components/Footer";
 import useFetchLocation from "./components/hooks/useFetchLocation";
 import useFetchValue from "./components/hooks/useFetchValue";
-import WeatherCard from "./components/WeatherCard";
+import Weather from "./components/Weather";
 import { getValueFromPath } from "./components/utils";
+import Loading from "./components/Loading";
 
 export default function App() {
   const [location, setLocation] = useState({ latitude: null, longitude: null });
@@ -28,6 +29,8 @@ export default function App() {
   useEffect(() => {
     if (location.latitude && location.longitude) {
       const getWeather = async () => {
+        setWeather(null);
+
         const data = await useFetchLocation(
           location.latitude,
           location.longitude
@@ -62,6 +65,7 @@ export default function App() {
     }
 
     const getWeather = async () => {
+      setWeather(null);
       const data = await useFetchValue(inputValue);
 
       const conditionText = data.current.condition.text.toLowerCase();
@@ -102,7 +106,7 @@ export default function App() {
             backgroundPosition: "center",
           }}
         >
-          <WeatherCard weather={weather} />
+          <Weather weather={weather} />
 
           <div
             id="bg"
@@ -147,5 +151,7 @@ export default function App() {
         <Footer />
       </>
     );
+  } else {
+    return <Loading location={inputValue} />;
   }
 }

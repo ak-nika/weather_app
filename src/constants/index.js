@@ -53,10 +53,4 @@ export const weatherDetails = [
     name: "Chance of Rain",
     unit: "%",
   },
-  {
-    id: 11,
-    value: "forecast.forecastday[0].day.daily_chance_of_snow",
-    name: "Chance of Snow",
-    unit: "%",
-  },
 ];

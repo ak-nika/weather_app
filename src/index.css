@@ -5,3 +5,12 @@
 .glass-background {
   @apply bg-opacity-30 backdrop-filter backdrop-blur-lg border-opacity-10;
 }
+/* Hide scrollbar for Chrome, Safari, and Edge */
+.hide-scrollbar::-webkit-scrollbar {
+  background-color: transparent;
+}
+/* Hide scrollbar for IE, Edge, and Firefox */
+.hide-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
