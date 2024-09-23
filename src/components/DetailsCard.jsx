@@ -1,4 +1,4 @@
-const DetailsCard = ({ weather, name, unit, value }) => {
+const DetailsCard = ({ name, unit, value }) => {
   return (
     <div className="flex items-center justify-between w-full">
       <p className="text-dim text-lg">{name}</p>
