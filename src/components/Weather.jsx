@@ -3,7 +3,7 @@ import WeatherCard from "./WeatherCard";
 const Weather = ({ weather }) => {
   return (
     <div className="flex flex-col lg:px-6 lg:pb-12 lg:py-12 py-4 justify-between md:h-[95.6vh] lg:w-[60%] sm:ml-6 lg:ml-0">
-      <h3 className="font-semibold text-xl text-white ml-2 lg:ml-0">
+      <h3 className="font-semibold text-xl text-white sm:mb-3 lg:mb-0 ml-2 lg:ml-0">
         Weather App
       </h3>
 
