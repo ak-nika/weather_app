@@ -1,3 +1,4 @@
+// Get weather based on input value
 const useFetchValue = async (input) => {
   const apiKey = import.meta.env.VITE_API_KEY;
 

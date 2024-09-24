@@ -1,5 +1,6 @@
 import WeatherCard from "./WeatherCard";
 
+// Get the weather from the weather object and display it
 const Weather = ({ weather }) => {
   return (
     <div className="flex flex-col lg:px-6 lg:pb-12 lg:py-12 py-4 justify-between md:h-[95.6vh] lg:w-[60%] sm:ml-6 lg:ml-0">

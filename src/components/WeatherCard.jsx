@@ -1,4 +1,5 @@
 const WeatherCard = ({ rain, icon, temp, time, text }) => {
+  // Add 0 in front of the time if it is less than 10
   if (time < 10) {
     time = `0${time}`;
   }

@@ -1,3 +1,4 @@
+// Get weather from location using longitude and latitude
 const useFetchLocation = async (lat, long) => {
   const apiKey = import.meta.env.VITE_API_KEY;
 

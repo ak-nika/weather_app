@@ -1,4 +1,4 @@
-import { day, night } from "./assets";
+import { day, night } from "./assets"; // images for background
 import { useEffect, useState } from "react";
 import { weatherDetails } from "./constants";
 import DetailsCard from "./components/DetailsCard";
@@ -10,11 +10,13 @@ import { getValueFromPath } from "./components/utils";
 import Loading from "./components/Loading";
 
 export default function App() {
+  // Set state for location, background, inputValue, and weather
   const [location, setLocation] = useState({ latitude: null, longitude: null });
   const [background, setBackground] = useState(null);
   const [inputValue, setInputValue] = useState("");
   const [weather, setWeather] = useState(null);
 
+  // Get current location
   useEffect(() => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
@@ -26,9 +28,11 @@ export default function App() {
     }
   }, []);
 
+  // Get weather from current location
   useEffect(() => {
     if (location.latitude && location.longitude) {
       const getWeather = async () => {
+        // Set the weather to null to activate loading component
         setWeather(null);
 
         const data = await useFetchLocation(
@@ -36,6 +40,7 @@ export default function App() {
           location.longitude
         );
 
+        // Get the background image based on the weather
         const conditionText = data.current.condition.text.toLowerCase();
         const isDay = data.current.is_day === 1;
 
@@ -50,6 +55,7 @@ export default function App() {
           image = isDay ? day.clear : night.clear;
         }
 
+        // Set background and weather
         setBackground(image);
         setWeather(data);
       };
@@ -59,15 +65,18 @@ export default function App() {
   }, [location, day, night]);
 
   const handleWeather = (inputValue) => {
+    // Check if input is empty
     if (inputValue === "") {
       alert("Please enter a location");
       return;
     }
 
+    // Get weather from value
     const getWeather = async () => {
       setWeather(null);
       const data = await useFetchValue(inputValue);
 
+      // Get the background image based on the weather
       const conditionText = data.current.condition.text.toLowerCase();
       const isDay = data.current.is_day === 1;
 
@@ -82,6 +91,7 @@ export default function App() {
         image = isDay ? day.clear : night.clear;
       }
 
+      // Set background and weather
       setBackground(image);
       setWeather(data);
     };
@@ -89,6 +99,7 @@ export default function App() {
     getWeather();
   };
 
+  // Activate search when enter is pressed
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
       handleWeather(inputValue);
