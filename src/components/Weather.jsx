@@ -22,7 +22,7 @@ const Weather = ({ weather }) => {
       </div>
 
       <div className="flex flex-col lg:flex-row items-center justify-between gap-3">
-        <h1 id="temp" className="text-white font-bold text-7xl md:text-8xl">
+        <h1 className="text-white font-bold text-7xl md:text-8xl">
           {weather.current.temp_c} °C
         </h1>
 
@@ -41,24 +41,21 @@ const Weather = ({ weather }) => {
 
         <div className="flex gap-4">
           <div className="flex flex-col items-center justify-between gap-4">
-            <h1 id="place" className="text-white font-semibold text-5xl">
+            <h1 className="text-white font-semibold text-5xl">
               {weather.location.name}
             </h1>
-            <p id="time" className="text-white font-bold">
-              {weather.location.localtime}
-            </p>
+            <p className="text-white font-bold">{weather.location.localtime}</p>
           </div>
 
           <div className="flex flex-col items-center justify-center">
             <img
-              id="icon"
               alt="weather"
               className={weather.current.condition.icon ? "" : "hidden"}
               src={weather.current.condition.icon || ""}
               width={64}
               height={64}
             />
-            <p id="condition" className="text-white font-bold">
+            <p className="text-white font-bold">
               {weather.current.condition.text}
             </p>
           </div>

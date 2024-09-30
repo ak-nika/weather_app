@@ -32,9 +32,6 @@ export default function App() {
   useEffect(() => {
     if (location.latitude && location.longitude) {
       const getWeather = async () => {
-        // Set the weather to null to activate loading component
-        setWeather(null);
-
         const data = await useFetchLocation(
           location.latitude,
           location.longitude
@@ -105,64 +102,63 @@ export default function App() {
       handleWeather(inputValue);
     }
   };
-  if (weather) {
-    return (
-      <>
-        <section
-          className="bg-black w-full md:h-[95.6vh] flex lg:flex-row flex-col items-center justify-between"
-          style={{
-            backgroundImage: `url(${background})`,
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        >
-          <Weather weather={weather} />
-
-          <div
-            id="bg"
-            className="glass-background lg:w-[40%] w-full md:h-[95.6vh] lg:pb-0 pb-3"
+  return (
+    <>
+      {!weather ? (
+        <Loading location={inputValue} />
+      ) : (
+        <>
+          <section
+            className="bg-black w-full md:h-[95.6vh] h-fit flex lg:flex-row flex-col items-center justify-between"
+            style={{
+              backgroundImage: `url(${background})`,
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
           >
-            <div className="w-full flex items-center justify-between">
-              <div className="w-full flex items-center justify-center">
-                <input
-                  value={inputValue}
-                  onChange={(e) => setInputValue(e.target.value)}
-                  onKeyDown={handleKeyDown}
-                  type="text"
-                  placeholder="Search Location..."
-                  className="w-[80%] h-12 mx-auto pl-4 border-b-[1px] border-secondary bg-transparent text-white outline-none"
-                />
+            <Weather weather={weather} />
+
+            <div className="glass-background lg:w-[40%] w-full md:h-[95.6vh] lg:pb-0 pb-3">
+              <div className="w-full flex items-center justify-between">
+                <div className="w-full flex items-center justify-center">
+                  <input
+                    value={inputValue}
+                    onChange={(e) => setInputValue(e.target.value)}
+                    onKeyDown={handleKeyDown}
+                    type="text"
+                    placeholder="Search Location..."
+                    className="w-[80%] h-12 mx-auto pl-4 border-b-[1px] border-secondary bg-transparent placeholder-white text-white outline-none"
+                  />
+                </div>
+              </div>
+
+              <div className="px-[10%] mt-6">
+                <h3 className="text-white font-semibold text-xl">
+                  Weather Details
+                </h3>
+
+                <div className="mt-5 flex flex-col w-full gap-4">
+                  {weatherDetails.map((detail) => {
+                    const value = getValueFromPath(weather, detail.value);
+
+                    return (
+                      <DetailsCard
+                        value={value}
+                        unit={detail.unit}
+                        name={detail.name}
+                        key={detail.id}
+                      />
+                    );
+                  })}
+                </div>
               </div>
             </div>
+          </section>
 
-            <div className="px-[10%] mt-6">
-              <h3 className="text-white font-semibold text-xl">
-                Weather Details
-              </h3>
-
-              <div className="mt-5 flex flex-col w-full gap-4">
-                {weatherDetails.map((detail) => {
-                  const value = getValueFromPath(weather, detail.value);
-
-                  return (
-                    <DetailsCard
-                      value={value}
-                      unit={detail.unit}
-                      name={detail.name}
-                      key={detail.id}
-                    />
-                  );
-                })}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <Footer />
-      </>
-    );
-  } else {
-    return <Loading location={inputValue} />;
-  }
+          <Footer />
+        </>
+      )}
+    </>
+  );
 }

@@ -2,7 +2,7 @@ const Footer = () => {
   return (
     <footer className="w-full h-fit lg:py-1 py-2 flex flex-col gap-2 items-start md:items-center md:gap-0 md:flex-row justify-between px-4">
       <p className="text-dim text-sm">
-        &#169; 2024 Weather App ver. 2.2.0. All rights reserved.
+        &#169; 2024 Weather App ver. 2.2.1. All rights reserved.
       </p>
       <p className="text-dim text-sm">
         Made by{" "}
