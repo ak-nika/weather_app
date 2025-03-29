@@ -23,7 +23,7 @@ const Weather = ({ weather }) => {
 
       <div className="flex flex-col lg:flex-row items-center justify-between gap-3">
         <h1 className="text-white font-bold text-7xl md:text-8xl">
-          {weather.current.temp_c} °C
+          {weather.current.temp_c}°C
         </h1>
 
         <div className="lg:hidden flex items-center flex-nowrap gap-5 overflow-x-scroll hide-scrollbar my-2 w-screen p-2 pr-7">
